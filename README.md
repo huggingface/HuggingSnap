@@ -12,9 +12,12 @@ Designed for efficiency, SmolVLM can answer questions about images, describe vis
 The repository makes use of a modified version of [mlx-swift-examples](https://github.com/cyrilzakka/mlx-swift-examples) for VLM support.
 
 ## How to run
+
+- Install the [TestFligh beta](https://testflight.apple.com/join/c1MPaHDF). You need an iPhone running iOS 18.
+
+Or, to build the app yourself:
 - Clone the repository
 - Open `HuggingSnap.xcodeproj` in Xcode
-- Add your [Hugging Face API](https://huggingface.co/docs/hub/en/security-tokens) key to [environment variables](https://swiftonserver.com/using-environment-variables-in-swift/)
 - Run the app on a physical device
 
 You'll need to change the bundle identifier and developer team to run the app on your device.
