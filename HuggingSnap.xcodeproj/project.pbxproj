@@ -16,9 +16,22 @@
 		F117BC392D5BE59F008074F1 /* HuggingSnap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HuggingSnap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		EB64526E2D88998700FD89D7 /* Exceptions for "HuggingSnap" folder in "HuggingSnap" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = F117BC382D5BE59F008074F1 /* HuggingSnap */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		F117BC3B2D5BE59F008074F1 /* HuggingSnap */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				EB64526E2D88998700FD89D7 /* Exceptions for "HuggingSnap" folder in "HuggingSnap" target */,
+			);
 			path = HuggingSnap;
 			sourceTree = "<group>";
 		};
@@ -267,11 +280,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = HuggingSnap/HuggingSnap.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"HuggingSnap/Preview Content\"";
 				DEVELOPMENT_TEAM = 2EADP68M95;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HuggingSnap/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Access to the camera is needed for live video descriptions";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Access to the microphone is needed for live video descriptions";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Access to your photo library is needed to save videos and photos taken.";
@@ -305,11 +319,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = HuggingSnap/HuggingSnap.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"HuggingSnap/Preview Content\"";
 				DEVELOPMENT_TEAM = 2EADP68M95;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HuggingSnap/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Access to the camera is needed for live video descriptions";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Access to the microphone is needed for live video descriptions";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Access to your photo library is needed to save videos and photos taken.";
