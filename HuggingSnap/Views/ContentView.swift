@@ -8,9 +8,9 @@ import AVKit
 import PhotosUI
 import SwiftUI
 import CoreHaptics
+import StoreKit
 
 // TODO: Stop streaming when not displayed
-// TODO: Add video recording
 
 enum LoadState {
     case unknown
@@ -22,7 +22,9 @@ enum LoadState {
 
 struct ContentView: View {
     
-
+    // Misc
+    @Environment(\.requestReview) var requestReview
+    
     // Control state
     @StateObject private var model = ContentViewModel()
     @State private var isCaptured: Bool = false
@@ -90,6 +92,10 @@ struct ContentView: View {
                 //
             }
         }
+        .onAppear {
+            // Will always appear in DEBUG. Not a bug
+             requestReview()
+        }
         .overlay {
             ZStack(alignment: .bottom) {
                 VStack(spacing: 0) {
@@ -121,7 +127,6 @@ struct ContentView: View {
                         .environmentObject(model)
                         .environment(llm)
                         .padding()
-                        
                         .preferredColorScheme(.dark)
                 }
             }
