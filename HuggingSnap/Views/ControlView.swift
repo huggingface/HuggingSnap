@@ -89,6 +89,7 @@ struct ControlView: View {
                                             .fill(.ultraThickMaterial)
                                     }
                             }
+                            .accessibilityLabel(Text("Press this button to have HuggingSnap describe the current image"))
                             .transition(.blurReplace.combined(with: .scale))
                         }
                         
@@ -110,6 +111,7 @@ struct ControlView: View {
                                             .fill(.ultraThickMaterial)
                                     }
                             }
+                            .accessibilityLabel(Text("Press this button to have HuggingSnap summarize the current video."))
                         }
                     }
                     .frame(maxWidth: .infinity, alignment: .center)
@@ -130,6 +132,7 @@ struct ControlView: View {
                                     .fontWeight(.bold)
                             }
                         }
+                        .accessibilityLabel(Text("Press the button to type a message to HuggingSnap"))
                     } else {
                         PhotosPicker(selection: $selectedItem,
                                      matching: .any(of: [.images, .videos])) {
@@ -142,6 +145,7 @@ struct ControlView: View {
                                     .fontWeight(.bold)
                             }
                         }
+                                     .accessibilityLabel(Text("Press the button to select a photo or video as input to HuggingSnap"))
                     }
                     
                     
@@ -200,6 +204,7 @@ struct ControlView: View {
                         }
                         .frame(width: 70, height: 70)
                         .contentShape(.rect)
+                        .accessibilityLabel(Text(isCaptured ? "Press the button to clear the capture.":"Press the button to snap a picture. Tap and hold to record a video."))
                         .gesture(
                             DragGesture(minimumDistance: 0)
                                 .onChanged { _ in
@@ -252,7 +257,6 @@ struct ControlView: View {
                         Button {
                             isAudioMode = true
                             showInputView = true
-                            
                         } label: {
                             ZStack {
                                 Circle()
@@ -263,6 +267,7 @@ struct ControlView: View {
                                     .fontWeight(.bold)
                             }
                         }
+                        .accessibilityLabel(Text("Press the button to dictate a message to HuggingSnap"))
                     } else {
                         Button {
 #if targetEnvironment(simulator)
@@ -279,6 +284,7 @@ struct ControlView: View {
                                     .fontWeight(.bold)
                             }
                         }
+                        .accessibilityLabel(Text("Press the button to switch between front and back cameras"))
                         .disabled(isCaptured)
                     }
                     

@@ -11,6 +11,7 @@ import MessageUI
 struct SettingsView: View {
     
     @Environment(\.dismiss) var dismiss
+    @Environment(\.openURL) private var openURL
     
     // Support
     @State var result: Result<MFMailComposeResult, Error>? = nil
@@ -20,17 +21,48 @@ struct SettingsView: View {
         NavigationStack {
             List {
                 Section("Support") {
-                    LabeledContent {
-                    } label: {
-                        Label("Terms of Use", systemImage: "book.pages")
-                            .imageScale(.medium)
-                    }
+                    Button(action: {
+                        guard let url = URL(string: "https://huggingface.co/privacy") else { return }
+                                               openURL(url)
+                    }, label: {
+                        Label(title: {
+                            Text("Privacy Policy")
+                                .foregroundStyle(.primary)
+                        }, icon: {
+                            Image(systemName: "lock")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 20, height: 20)
+                        })
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .imageScale(.medium)
+                    })
+                    .tint(.primary)
+                    .accessibilityLabel(Text("Press the button to view Hugging Face's privacy policy"))
+                    .buttonStyle(.borderless)
+                    .contentShape(Rectangle())
                     
-                    LabeledContent {
-                    } label: {
-                        Label("Privacy Policy", systemImage: "lock")
-                            .imageScale(.medium)
-                    }
+                    Button(action: {
+                        guard let url = URL(string: "https://huggingface.co/terms-of-service/") else { return }
+                        openURL(url)
+                    }, label: {
+                        Label(title: {
+                            Text("Terms of Use")
+                                .foregroundStyle(.primary)
+                        }, icon: {
+                            Image(systemName: "book.pages")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 20, height: 20)
+                        })
+                        
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .imageScale(.medium)
+                    })
+                    .tint(.primary)
+                    .accessibilityLabel(Text("Press the button to view Hugging Face's terms of service"))
+                    .buttonStyle(.borderless)
+                    .contentShape(Rectangle())
                     
                     LabeledContent {
                         Text(Bundle.main.releaseVersionNumberPretty)
@@ -47,6 +79,7 @@ struct SettingsView: View {
                         })
                         .imageScale(.medium)
                     }
+                    .accessibilityLabel(Text("HuggingSnap version \(Bundle.main.releaseVersionNumberPretty)"))
                 }
                 
                 Button(action: {
@@ -64,9 +97,10 @@ struct SettingsView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .imageScale(.medium)
                 })
+                .tint(.primary)
+                .accessibilityLabel(Text("Press the button to send an email to Hugging Face support."))
                 .buttonStyle(.borderless)
                 .contentShape(Rectangle())
-                .disabled(!MFMailComposeViewController.canSendMail())
                 .sheet(isPresented: $isShowingMailView) {
                     MailView(
                         result: self.$result,

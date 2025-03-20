@@ -94,7 +94,10 @@ struct ContentView: View {
         }
         .onAppear {
             // Will always appear in DEBUG. Not a bug
+#if targetEnvironment(simulator)
+#else
              requestReview()
+#endif
         }
         .overlay {
             ZStack(alignment: .bottom) {
@@ -105,6 +108,7 @@ struct ContentView: View {
                                 .fontWeight(.bold)
                                 .foregroundStyle(.white.secondary)
                         })
+                        .accessibilityLabel(Text("Press this button to access app settings"))
                         Spacer()
                     }.padding(.horizontal, 40)
                     
