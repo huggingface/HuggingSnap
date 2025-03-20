@@ -13,7 +13,7 @@ The repository makes use of a modified version of [mlx-swift-examples](https://g
 
 ## How to run
 
-- Install the [TestFligh beta](https://testflight.apple.com/join/c1MPaHDF). You need an iPhone running iOS 18.
+- Install from the [App Store](https://apps.apple.com/us/app/huggingsnap/id6742157364). You need an iPhone running iOS 18.
 
 Or, to build the app yourself:
 - Clone the repository
